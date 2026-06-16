@@ -1,4 +1,4 @@
-# Sistem Fuzzy Tsukamoto - Mahasiswa Berprestasi
+# Sistem Penentuan Mahasiswa Berprestasi - Fuzzy Tsukamoto
 
 Aplikasi desktop berbasis **Tkinter + Matplotlib** untuk menentukan tingkat prestasi mahasiswa (Cukup / Baik / Sangat Baik) menggunakan metode **Fuzzy Tsukamoto**, dengan 4 variabel input dan visualisasi grafik fungsi keanggotaan secara real-time.
 
