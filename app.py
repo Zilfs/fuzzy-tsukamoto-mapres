@@ -85,7 +85,7 @@ class FuzzyApp(tk.Tk):
             self.sliders.append(s)
 
         tk.Button(
-            c, text="  Hitung & Tampilkan Grafik  ",
+            c, text="Hitung",
             font=("Segoe UI", 10, "bold"),
             bg=PRIMARY, fg="white", relief="flat",
             activebackground=ACCENT, activeforeground="white",
@@ -128,7 +128,7 @@ class FuzzyApp(tk.Tk):
         self.lbl_pct = label(c, "", font=FONT_SMALL, color=SUBTEXT)
         self.lbl_pct.grid(row=6, column=0, sticky="w", padx=16)
 
-        label(c, "  Derajat Keanggotaan Input",
+        label(c, "Derajat Keanggotaan Input",
               font=("Segoe UI", 10, "bold"), color=PRIMARY
               ).grid(row=7, column=0, sticky="w", pady=(16, 4))
         tk.Frame(c, height=1, bg=BORDER).grid(row=8, column=0, sticky="ew", padx=12)
@@ -151,7 +151,7 @@ class FuzzyApp(tk.Tk):
         c.grid(row=1, column=0, columnspan=2, sticky="nsew", pady=8)
         c.columnconfigure(0, weight=1)
 
-        label(c, "  Detail Rule & Inferensi",
+        label(c, "Detail Rule & Inferensi",
               font=("Segoe UI", 11, "bold"), color=PRIMARY
               ).grid(row=0, column=0, sticky="w", pady=(12, 4))
         tk.Frame(c, height=1, bg=BORDER).grid(row=1, column=0, sticky="ew", padx=12)
@@ -231,4 +231,4 @@ class FuzzyApp(tk.Tk):
         # Update grafik & pindah ke tab Grafik
         inputs = {"ipk": ipk, "prestasi": prestasi, "org": org, "kehadiran": kehadiran}
         self.graph_panel.update(inputs, fuzz, z)
-        self._nb.select(1)   # otomatis pindah ke tab Grafik
+       # self._nb.select(1)   # otomatis pindah ke tab Grafik
