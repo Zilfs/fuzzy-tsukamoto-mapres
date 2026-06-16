@@ -27,20 +27,30 @@ Aplikasi desktop berbasis **Tkinter + Matplotlib** untuk menentukan tingkat pres
 
 ## 3. Instalasi (Clone & Setup)
 
+### 3.1 Clone repository
+
 ```bash
-# 1. Clone repository
 git clone https://github.com/Zilfs/fuzzy-tsukamoto-mapres.git
 cd fuzzy-tsukamoto-mapres
+```
 
-# 2. (Opsional) buat virtual environment
+### 3.2 (Opsional) buat virtual environment
+
+```bash
 python -m venv venv
 source venv/bin/activate      # Linux/Mac
 venv\Scripts\activate         # Windows
+```
 
-# 3. Install library yang dibutuhkan
+### 3.3 Install library yang dibutuhkan
+
+```bash
 pip install numpy matplotlib
+```
 
-# Khusus Linux, jika tkinter belum tersedia:
+### Khusus Linux, jika tkinter belum tersedia:
+
+```bash
 sudo apt install python3-tk
 ```
 
@@ -90,20 +100,20 @@ Window **"Sistem Fuzzy Tsukamoto - Mahasiswa Berprestasi"** akan terbuka, berisi
 
 ### 6.1 Variabel & Himpunan Fuzzy Input
 
-| Variabel           | Rendah         | Sedang               | Tinggi         |
-| ------------------ | -------------- | -------------------- | -------------- |
-| IPK (0–4)          | turun 2.0→2.75 | segitiga 2.5–3.0–3.5 | naik 3.25→3.75 |
-| Prestasi (0–100)   | turun 30→50    | segitiga 30–55–80    | naik 65→85     |
-| Organisasi (0–10)  | turun 3→5      | segitiga 3–5–8       | naik 6→9       |
-| Kehadiran (0–100%) | turun 60→75    | segitiga 65–78–88    | naik 82→92     |
+| Variabel           | Rendah          | Sedang               | Tinggi          |
+| ------------------ | --------------- | -------------------- | --------------- |
+| IPK (0–4)          | turun 2.0->2.75 | segitiga 2.5–3.0–3.5 | naik 3.25->3.75 |
+| Prestasi (0–100)   | turun 30->50    | segitiga 30–55–80    | naik 65->85     |
+| Organisasi (0–10)  | turun 3->5      | segitiga 3–5–8       | naik 6->9       |
+| Kehadiran (0–100%) | turun 60->75    | segitiga 65–78–88    | naik 82->92     |
 
 ### 6.2 Variabel Output (skor 0–100) & Fungsi Invers (Tsukamoto)
 
 | Kategori    | Bentuk MF         | Invers (untuk z_i) |
 | ----------- | ----------------- | ------------------ |
-| Cukup       | turun 30→50       | z = 50 − 20·α      |
+| Cukup       | turun 30->50      | z = 50 − 20·α      |
 | Baik        | segitiga 30–55–80 | z = 30 + 25·α      |
-| Sangat Baik | naik 60→100       | z = 60 + 40·α      |
+| Sangat Baik | naik 60->100      | z = 60 + 40·α      |
 
 ### 6.3 Basis Rule (12 Rule, operator AND = min)
 
@@ -128,9 +138,9 @@ Window **"Sistem Fuzzy Tsukamoto - Mahasiswa Berprestasi"** akan terbuka, berisi
 z* = Σ(αᵢ × zᵢ) / Σ(αᵢ)
 ```
 
-- z\* < 50 → **Cukup**
-- 50 ≤ z\* < 75 → **Baik**
-- z\* ≥ 75 → **Sangat Baik**
+- z\* < 50 -> **Cukup**
+- 50 ≤ z\* < 75 -> **Baik**
+- z\* ≥ 75 -> **Sangat Baik**
 
 ---
 
