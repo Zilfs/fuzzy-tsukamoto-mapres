@@ -156,6 +156,9 @@ z* = Σ(αᵢ × zᵢ) / Σ(αᵢ)
 
 ### Percobaan 1 (Kategori Cukup)
 
+![](doc-image/kalkulator-percobaan1.png)
+![](doc-image/graf-percobaan1.png)
+
 #### 1. Kondisi Input Mahasiswa
 
 Nilai tegas (_crisp_) yang dimasukkan ke dalam sistem melalui slider adalah sebagai berikut:
@@ -192,6 +195,9 @@ Sistem mengeluarkan nilai akhir tegas **32.2115** yang secara otomatis diklasifi
 
 ### Percobaan 2 (Kategori Baik)
 
+![](doc-image/kalkulator-percobaan2.png)
+![](doc-image/graf-percobaan2.png)
+
 #### 1. Kondisi Input Mahasiswa
 
 Nilai tegas (_crisp_) yang dimasukkan ke dalam sistem melalui slider adalah sebagai berikut:
@@ -226,6 +232,9 @@ Sistem mengeluarkan nilai akhir tegas **73.6150** yang secara otomatis diklasifi
 ---
 
 ### Percobaan 3 (Kategori Sangat Baik)
+
+![](doc-image/kalkulator-percobaan3.png)
+![](doc-image/graf-percobaan3.png)
 
 #### 1. Kondisi Input Mahasiswa
 
