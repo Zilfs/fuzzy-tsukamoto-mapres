@@ -170,14 +170,14 @@ Nilai tegas (_crisp_) yang dimasukkan ke dalam sistem melalui slider adalah seba
 
 #### 2. Analisis Inferensi (Aturan yang Aktif)
 
-Dari total 12 aturan yang ada pada sistem, hanya ada **2 aturan** yang aktif (memiliki nilai $ lpha$-predikat $> 0$) karena dipicu oleh kondisi nilai input di atas:
+Dari total 12 aturan yang ada pada sistem, hanya ada **2 aturan** yang aktif (memiliki nilai aplpha-predikat $> 0$) karena dipicu oleh kondisi nilai input di atas:
 
 - **Rule 8 (R8):** `IF IPK Sedang AND Organisasi Rendah THEN Cukup`
-  - Nilai $ lpha$-predikat = $\min(\mu	ext{IPK\_Sedang}, \mu	ext{Org\_Rendah}) = \min(0.74, 1.00) = \mathbf{0.7400}$.
+  - Nilai aplpha-predikat = $\min(\mu	ext{IPK\_Sedang}, \mu	ext{Org\_Rendah}) = \min(0.74, 1.00) = \mathbf{0.7400}$.
   - Nilai implikasi tegas individual ($z_8$) = **35.2000**.
   - Aturan ini memberikan kontribusi sebesar **42.5%** terhadap hasil akhir.
 - **Rule 10 (R10):** `IF Kehadiran Rendah AND Prestasi Rendah THEN Cukup`
-  - Nilai $ lpha$-predikat = $\min(\mu	ext{Hdr\_Rendah}, \mu	ext{Prs\_Rendah}) = \min(1.00, 1.00) = \mathbf{1.0000}$.
+  - Nilai aplpha-predikat = $\min(\mu	ext{Hdr\_Rendah}, \mu	ext{Prs\_Rendah}) = \min(1.00, 1.00) = \mathbf{1.0000}$.
   - Nilai implikasi tegas individual ($z_{10}$) = **30.0000**.
   - Aturan ini menjadi dominan dengan kontribusi sebesar **57.5%** terhadap hasil akhir.
 
@@ -209,15 +209,15 @@ Nilai tegas (_crisp_) yang dimasukkan ke dalam sistem melalui slider adalah seba
 
 #### 2. Analisis Inferensi (Aturan yang Aktif)
 
-Kombinasi nilai input yang bersinggungan di beberapa kurva keanggotaan ini memicu aktifnya **5 aturan** sekaligus (memiliki nilai $ lpha$-predikat $> 0$):
+Kombinasi nilai input yang bersinggungan di beberapa kurva keanggotaan ini memicu aktifnya **5 aturan** sekaligus (memiliki nilai aplpha-predikat $> 0$):
 
 - **Rule 1 (R1):** `IF IPK Tinggi AND Prestasi Tinggi THEN Sangat Baik`
-  - Nilai $ lpha$-predikat = $\min(0.48, 0.55) = \mathbf{0.4800}$.
+  - Nilai aplpha-predikat = $\min(0.48, 0.55) = \mathbf{0.4800}$.
   - Nilai tegas individual ($z_1$) = **79.2000**. Aturan ini berkontribusi paling besar yaitu **55.0%**.
 - **Rule 2 (R2):** `IF IPK Tinggi AND Organisasi Tinggi THEN Sangat Baik`
-  - Nilai $ lpha$-predikat = $\min(0.48, 0.333) = \mathbf{0.3333}$.
+  - Nilai aplpha-predikat = $\min(0.48, 0.333) = \mathbf{0.3333}$.
   - Nilai tegas individual ($z_2$) = **73.3333**. Kontribusi aturan ini adalah **38.2%**.
-- **Rule 5, 6, dan 7 (R5, R6, R7):** Ketiganya menghasilkan output **Baik** dengan nilai $ lpha$-predikat masing-masing sebesar **0.0200** dan nilai tegas individual ($z_i$) sebesar **30.5000**. Masing-masing aturan ini memberikan kontribusi kecil sebesar **2.3%** terhadap hasil akhir.
+- **Rule 5, 6, dan 7 (R5, R6, R7):** Ketiganya menghasilkan output **Baik** dengan nilai aplpha-predikat masing-masing sebesar **0.0200** dan nilai tegas individual ($z_i$) sebesar **30.5000**. Masing-masing aturan ini memberikan kontribusi kecil sebesar **2.3%** terhadap hasil akhir.
 
 #### 3. Hasil Akhir Defuzzifikasi
 
@@ -250,13 +250,13 @@ Nilai tegas (_crisp_) yang dimasukkan ke dalam sistem melalui slider adalah seba
 Kondisi nilai input yang seluruhnya berada di level maksimal (kurva Tinggi) ini memicu aktifnya **3 aturan** yang mengarah langsung pada hasil performa terbaik:
 
 - **Rule 1 (R1):** `IF IPK Tinggi AND Prestasi Tinggi THEN Sangat Baik`
-  - Nilai $ lpha$-predikat = $\min(1.00, 1.00) = \mathbf{1.0000}$.
+  - Nilai aplpha-predikat = $\min(1.00, 1.00) = \mathbf{1.0000}$.
   - Nilai tegas individual ($z_1$) = **100.0000**. Aturan ini memegang kontribusi sebesar **33.3%**.
 - **Rule 2 (R2):** `IF IPK Tinggi AND Organisasi Tinggi THEN Sangat Baik`
-  - Nilai $ lpha$-predikat = $\min(1.00, 1.00) = \mathbf{1.0000}$.
+  - Nilai aplpha-predikat = $\min(1.00, 1.00) = \mathbf{1.0000}$.
   - Nilai tegas individual ($z_2$) = **100.0000**. Aturan ini juga berkontribusi sebesar **33.3%**.
 - **Rule 3 (R3):** `IF IPK Tinggi AND Kehadiran Tinggi THEN Sangat Baik`
-  - Nilai $ lpha$-predikat = $\min(1.00, 1.00) = \mathbf{1.0000}$.
+  - Nilai aplpha-predikat = $\min(1.00, 1.00) = \mathbf{1.0000}$.
   - Nilai tegas individual ($z_3$) = **100.0000**. Aturan ini melengkapi bobot dengan kontribusi sebesar **33.3%**.
 
 #### 3. Hasil Akhir Defuzzifikasi
