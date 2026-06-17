@@ -151,3 +151,111 @@ z* = Σ(αᵢ × zᵢ) / Σ(αᵢ)
 - **Tabel rule custom** menggunakan `ttk.Treeview` dengan style `clam`, baris aktif di-highlight.
 - **Grafik ter-embed**, bukan jendela popup baru, sehingga performa lebih ringan dan UI menyatu.
 - **Catatan**: baris `self._nb.select(1)` di `app.py` (untuk auto-pindah ke tab Grafik setelah klik Hitung) sedang **di-nonaktifkan (di-comment)**. Jika ingin tab berpindah otomatis, hapus tanda `#` pada baris tersebut di akhir method `_calculate()`.
+
+## 8. Dokumentasi Percobaan
+
+### Percobaan 1 (Kategori Cukup)
+
+#### 1. Kondisi Input Mahasiswa
+
+Nilai tegas (_crisp_) yang dimasukkan ke dalam sistem melalui slider adalah sebagai berikut:
+
+- **IPK = 3.13** (Berada di kategori **Sedang** dengan derajat keanggotaan $\mu = 0.740$, dan sudah mulai menyentuh area kurva Tinggi tetapi masih bernilai sangat kecil/mendekati $0.00$).
+- **Prestasi Lomba = 25.0** (Berada mutlak di kategori **Rendah** dengan derajat keanggotaan $\mu = 1.000$).
+- **Organisasi = 2.5** (Berada mutlak di kategori **Rendah** dengan derajat keanggotaan $\mu = 1.000$).
+- **Kehadiran = 24.0%** (Berada mutlak di kategori **Rendah** dengan derajat keanggotaan $\mu = 1.000$).
+
+#### 2. Analisis Inferensi (Aturan yang Aktif)
+
+Dari total 12 aturan yang ada pada sistem, hanya ada **2 aturan** yang aktif (memiliki nilai $ lpha$-predikat $> 0$) karena dipicu oleh kondisi nilai input di atas:
+
+- **Rule 8 (R8):** `IF IPK Sedang AND Organisasi Rendah THEN Cukup`
+  - Nilai $ lpha$-predikat = $\min(\mu	ext{IPK\_Sedang}, \mu	ext{Org\_Rendah}) = \min(0.74, 1.00) = \mathbf{0.7400}$.
+  - Nilai implikasi tegas individual ($z_8$) = **35.2000**.
+  - Aturan ini memberikan kontribusi sebesar **42.5%** terhadap hasil akhir.
+- **Rule 10 (R10):** `IF Kehadiran Rendah AND Prestasi Rendah THEN Cukup`
+  - Nilai $ lpha$-predikat = $\min(\mu	ext{Hdr\_Rendah}, \mu	ext{Prs\_Rendah}) = \min(1.00, 1.00) = \mathbf{1.0000}$.
+  - Nilai implikasi tegas individual ($z_{10}$) = **30.0000**.
+  - Aturan ini menjadi dominan dengan kontribusi sebesar **57.5%** terhadap hasil akhir.
+
+#### 3. Hasil Akhir Defuzzifikasi
+
+Melalui perhitungan rata-rata berbobot (_weighted average_) dari aturan-aturan yang aktif:
+
+$$z^* = rac{(0.7400 	imes 35.2000) + (1.0000 	imes 30.0000)}{0.7400 + 1.0000} = \mathbf{32.2115}$$
+
+Sistem mengeluarkan nilai akhir tegas **32.2115** yang secara otomatis diklasifikasikan ke dalam kategori **Cukup** (karena nilai $z^* < 50$).
+
+**Kesimpulan Percobaan:** Meskipun mahasiswa memiliki pencapaian akademik yang lumayan baik (IPK 3.13 berada di tingkat Sedang), skor akhir prestasinya anjlok ke kategori **Cukup** akibat nilai parameter non-akademik (Prestasi Lomba, Organisasi) serta tingkat Kehadiran yang sangat rendah (bernilai maksimal di kurva Rendah).
+
+---
+
+### Percobaan 2 (Kategori Baik)
+
+#### 1. Kondisi Input Mahasiswa
+
+Nilai tegas (_crisp_) yang dimasukkan ke dalam sistem melalui slider adalah sebagai berikut:
+
+- **IPK = 3.49** (Berada di dua kurva: Kategori **Tinggi** dengan $\mu = 0.480$ dan kategori **Sedang** dengan $\mu = 0.020$).
+- **Prestasi Lomba = 76.0** (Berada di dua kurva: Kategori **Tinggi** dengan $\mu = 0.550$ dan kategori **Sedang** dengan $\mu = 0.160$).
+- **Organisasi = 7.0** (Berada di dua kurva: Kategori **Tinggi** dengan $\mu = 0.333$ dan kategori **Sedang** dengan $\mu = 0.333$).
+- **Kehadiran = 78.0%** (Berada mutlak di kategori **Sedang** dengan derajat keanggotaan $\mu = 1.000$).
+
+#### 2. Analisis Inferensi (Aturan yang Aktif)
+
+Kombinasi nilai input yang bersinggungan di beberapa kurva keanggotaan ini memicu aktifnya **5 aturan** sekaligus (memiliki nilai $ lpha$-predikat $> 0$):
+
+- **Rule 1 (R1):** `IF IPK Tinggi AND Prestasi Tinggi THEN Sangat Baik`
+  - Nilai $ lpha$-predikat = $\min(0.48, 0.55) = \mathbf{0.4800}$.
+  - Nilai tegas individual ($z_1$) = **79.2000**. Aturan ini berkontribusi paling besar yaitu **55.0%**.
+- **Rule 2 (R2):** `IF IPK Tinggi AND Organisasi Tinggi THEN Sangat Baik`
+  - Nilai $ lpha$-predikat = $\min(0.48, 0.333) = \mathbf{0.3333}$.
+  - Nilai tegas individual ($z_2$) = **73.3333**. Kontribusi aturan ini adalah **38.2%**.
+- **Rule 5, 6, dan 7 (R5, R6, R7):** Ketiganya menghasilkan output **Baik** dengan nilai $ lpha$-predikat masing-masing sebesar **0.0200** dan nilai tegas individual ($z_i$) sebesar **30.5000**. Masing-masing aturan ini memberikan kontribusi kecil sebesar **2.3%** terhadap hasil akhir.
+
+#### 3. Hasil Akhir Defuzzifikasi
+
+Melalui perhitungan rata-rata berbobot (_weighted average_) dari kelima aturan yang aktif tersebut:
+
+$$z^* = rac{(0.4800 	imes 79.2000) + (0.3333 	imes 73.3333) + 3 	imes (0.0200 	imes 30.5000)}{0.4800 + 0.3333 + 0.0200 + 0.0200 + 0.0200} = \mathbf{73.6150}$$
+
+Sistem mengeluarkan nilai akhir tegas **73.6150** yang secara otomatis diklasifikasikan ke dalam kategori **Baik** (karena berada di rentang $50 \le z^* < 75$).
+
+**Kesimpulan Percobaan:** Berbeda dengan percobaan sebelumnya, mahasiswa ini menunjukkan performa yang seimbang dan unggul di seluruh parameter. Komponen akademik (IPK 3.49) dan non-akademik (Prestasi Lomba 76 dan Organisasi 7) mayoritas sudah menyentuh domain kurva Tinggi, sehingga mendorong nilai akhir melonjak signifikan ke angka **73.6150 (Kategori Baik)** dan hampir mendekati batas kategori Sangat Baik.
+
+---
+
+### Percobaan 3 (Kategori Sangat Baik)
+
+#### 1. Kondisi Input Mahasiswa
+
+Nilai tegas (_crisp_) yang dimasukkan ke dalam sistem melalui slider adalah sebagai berikut:
+
+- **IPK = 3.86** (Berada mutlak di kategori **Tinggi** dengan derajat keanggotaan $\mu = 1.000$).
+- **Prestasi Lomba = 88.0** (Berada mutlak di kategori **Tinggi** dengan derajat keanggotaan $\mu = 1.000$).
+- **Organisasi = 9.2** (Berada mutlak di kategori **Tinggi** dengan derajat keanggotaan $\mu = 1.000$).
+- **Kehadiran = 94.0%** (Berada mutlak di kategori **Tinggi** dengan derajat keanggotaan $\mu = 1.000$).
+
+#### 2. Analisis Inferensi (Aturan yang Aktif)
+
+Kondisi nilai input yang seluruhnya berada di level maksimal (kurva Tinggi) ini memicu aktifnya **3 aturan** yang mengarah langsung pada hasil performa terbaik:
+
+- **Rule 1 (R1):** `IF IPK Tinggi AND Prestasi Tinggi THEN Sangat Baik`
+  - Nilai $ lpha$-predikat = $\min(1.00, 1.00) = \mathbf{1.0000}$.
+  - Nilai tegas individual ($z_1$) = **100.0000**. Aturan ini memegang kontribusi sebesar **33.3%**.
+- **Rule 2 (R2):** `IF IPK Tinggi AND Organisasi Tinggi THEN Sangat Baik`
+  - Nilai $ lpha$-predikat = $\min(1.00, 1.00) = \mathbf{1.0000}$.
+  - Nilai tegas individual ($z_2$) = **100.0000**. Aturan ini juga berkontribusi sebesar **33.3%**.
+- **Rule 3 (R3):** `IF IPK Tinggi AND Kehadiran Tinggi THEN Sangat Baik`
+  - Nilai $ lpha$-predikat = $\min(1.00, 1.00) = \mathbf{1.0000}$.
+  - Nilai tegas individual ($z_3$) = **100.0000**. Aturan ini melengkapi bobot dengan kontribusi sebesar **33.3%**.
+
+#### 3. Hasil Akhir Defuzzifikasi
+
+Melalui perhitungan rata-rata berbobot (_weighted average_) dari ketiga aturan dominan yang aktif tersebut:
+
+$$z^* = rac{(1.0000 	imes 100.0000) + (1.0000 	imes 100.0000) + (1.0000 	imes 100.0000)}{1.0000 + 1.0000 + 1.0000} = \mathbf{100.0000}$$
+
+Sistem mengeluarkan nilai akhir tegas **100.0000** yang secara otomatis diklasifikasikan ke dalam kategori **Sangat Baik** (karena nilai $z^* \ge 75$).
+
+**Kesimpulan Percobaan:** Percobaan kali ini merepresentasikan profil mahasiswa dengan pencapaian sempurna di semua lini. Karena seluruh parameter input (akademik, prestasi, organisasi, dan kehadiran) berada di puncak kurva Tinggi dengan derajat keanggotaan penuh ($\mu = 1.00$), basis aturan menghasilkan nilai invers output maksimal ($z_i = 100$). Hasilnya, sistem memberikan skor mutlak **100.0000 (Kategori Sangat Baik)** dengan visualisasi grafik output yang menyentuh batas paling kanan.
